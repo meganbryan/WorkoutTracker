@@ -4,16 +4,15 @@ const db = require("../models");
 router.get("/api/workouts", (req, res) => {
     console.log("This works")
     db.Workout.find({})
-    // .sort({created_at: -1})
     .then(data => {
-        console.log(data)
         res.send(data)
     })
     .catch(error => res.send(error));
 })
 
 router.post("/api/workouts", (req, res) => {
-    db.Workout.create({}).then(data => {
+    db.Workout.create({})
+    .then(data => {
         res.send(data)
     })
     .catch(error => res.send(error));
